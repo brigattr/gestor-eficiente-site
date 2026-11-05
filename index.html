@@ -1,0 +1,726 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+<meta name="theme-color" content="#12244E" />
+<meta property="og:title" content="Gestor Eficiente · ChiefDesk — sua área sob controle, sem planilhas" />
+<meta property="og:description" content="Tarefas, follow-ups, pessoas, clima e processos em uma única plataforma." />
+<meta property="og:image" content="https://chiefdesk.com.br/img/og-chiefdesk.jpg" />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
+<meta property="og:image:alt" content="Tela Visão geral do Gestor Eficiente" />
+<meta property="og:url" content="https://chiefdesk.com.br/" />
+<meta property="og:type" content="website" />
+<meta property="og:locale" content="pt_BR" />
+<meta property="og:site_name" content="ChiefDesk" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="Gestor Eficiente · ChiefDesk — sua área sob controle, sem planilhas" />
+<meta name="twitter:description" content="Tarefas, delegação, pessoas, clima e processos em uma única plataforma." />
+<meta name="twitter:image" content="https://chiefdesk.com.br/img/og-chiefdesk.jpg" />
+<link rel="icon" href="img/favicon.svg" type="image/svg+xml" />
+<link rel="icon" href="img/icon-192.png" sizes="192x192" type="image/png" />
+<link rel="apple-touch-icon" href="img/apple-touch-icon.png" />
+<title>Gestor Eficiente · ChiefDesk | Sistema de gestão de equipe, tarefas e rotinas</title>
+<meta name="description" content="Sistema de gestão para líderes: tarefas e follow-ups, delegação, projetos, pessoas, clima da equipe, NR-1 e controles da área numa só plataforma. Planos Individual e Empresa." />
+<link rel="canonical" href="https://chiefdesk.com.br/" />
+<meta name="robots" content="index, follow" />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@600;700;800&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
+<style>
+  /* Layout: mesma linguagem do site BP.CONN (faixas azul-marinho e claras alternadas, amarelo como destaque),
+     com as telas reais do sistema como vitrine. Visual único (claro com faixas escuras), cores explícitas. */
+  :root{
+    --blue:#1E5AA8;
+    --blue-deep:#12244E;
+    --blue-mid:#173C74;
+    --navy:#1B1F4D;
+    --yellow:#F5C542;
+    --yellow-2:#ffd75e;
+    --paper:#F3F5F8;
+    --white:#ffffff;
+    --text:#16294d;
+    --muted:#5a6b8a;
+    --on-dark:#ffffff;
+    --on-dark-soft:rgba(255,255,255,.82);
+    --line:#e2e7ef;
+    --ok:#17885c;
+    --bad:#c93c3c;
+    --font-display:'Baloo 2','Nunito',system-ui,sans-serif;
+    --font-body:'Nunito',system-ui,-apple-system,'Segoe UI',sans-serif;
+    --max:1160px;
+    color-scheme:light;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{font-family:var(--font-body);color:var(--text);background:var(--paper);line-height:1.6;-webkit-font-smoothing:antialiased;font-size:16px}
+  h1,h2,h3,.brand{font-family:var(--font-display);line-height:1.1;font-weight:800;text-wrap:balance}
+  a{color:inherit;text-decoration:none}
+  img{max-width:100%;display:block}
+  .wrap{max-width:var(--max);margin:0 auto;padding-left:max(16px, env(safe-area-inset-left, 0px));padding-right:max(16px, env(safe-area-inset-right, 0px))}
+  section{padding-block:88px}
+
+  /* marca: o gráfico em linha do ícone do sistema */
+  .logo{display:inline-flex;align-items:center;gap:10px;font-size:23px;letter-spacing:.01em}
+  .logo .ico{width:32px;height:32px;flex:none}
+  .logo small{font-family:var(--font-body);font-size:12px;font-weight:700;color:var(--yellow);letter-spacing:.06em;text-transform:uppercase;margin-left:2px}
+
+  /* header */
+  body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top, 0px);z-index:61;background:var(--blue-deep)}
+  header{position:sticky;top:env(safe-area-inset-top, 0px);z-index:60;background:rgba(18,36,78,.94);backdrop-filter:blur(10px);color:var(--on-dark);border-bottom:1px solid rgba(255,255,255,.08)}
+  .nav{display:flex;align-items:center;justify-content:space-between;height:68px;position:relative}
+  .menu{display:flex;align-items:center;gap:26px}
+  .menu a{color:var(--on-dark-soft);font-weight:600;font-size:15px;transition:color .18s}
+  .menu a:hover{color:var(--on-dark)}
+  .btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;font-family:var(--font-body);font-weight:700;font-size:15px;border-radius:999px;padding:12px 22px;border:2px solid transparent;cursor:pointer;transition:transform .15s,background .18s,color .18s,border-color .18s;text-align:center}
+  .btn:active{transform:translateY(1px)}
+  .btn-yellow{background:var(--yellow);color:#20315a}
+  .btn-yellow:hover{background:var(--yellow-2)}
+  .btn-ghost-light{border-color:rgba(255,255,255,.45);color:var(--on-dark)}
+  .btn-ghost-light:hover{border-color:var(--on-dark);background:rgba(255,255,255,.08)}
+  .btn-blue{background:var(--blue);color:var(--on-dark)}
+  .btn-blue:hover{background:#2569c0}
+  .btn svg{width:18px;height:18px;flex:none}
+  a.menu-cta{font-size:14px;padding:9px 18px}
+  .menu a.btn-yellow{color:#20315a}
+  .hamburger{display:none;background:none;border:0;color:var(--on-dark);cursor:pointer;padding:6px}
+
+  /* hero */
+  .hero{background:linear-gradient(158deg,#245fae 0%,#173c74 46%,#12224a 100%);color:var(--on-dark);position:relative;overflow:hidden;padding-block:96px 0}
+  .hero::after{content:"";position:absolute;inset:0;background:radial-gradient(60% 60% at 85% 15%, rgba(255,255,255,.08), transparent 60%);pointer-events:none}
+  .hero .wrap{position:relative;z-index:1}
+  .hero-txt{max-width:900px}
+  .hero h1{font-size:clamp(40px,6.2vw,68px);letter-spacing:-.01em}
+  .hero h1 .hl{color:var(--yellow)}
+  .hero p.lead{margin-top:22px;font-size:clamp(17px,2.2vw,21px);color:var(--on-dark-soft);max-width:60ch}
+  .hero .actions{margin-top:34px;display:flex;flex-wrap:wrap;gap:14px}
+  .stats{margin-top:44px;display:flex;flex-wrap:wrap;gap:12px 34px;padding-top:24px;border-top:1px solid rgba(255,255,255,.16)}
+  .stats span{font-size:14.5px;color:var(--on-dark-soft)}.stats b{color:var(--on-dark)}
+  .hero-shot{margin-top:56px;margin-bottom:-2px}
+
+  /* moldura de navegador para as telas */
+  .shot{border-radius:16px 16px 12px 12px;overflow:hidden;background:var(--white);box-shadow:0 30px 60px -20px rgba(10,22,52,.45),0 0 0 1px rgba(18,36,78,.10)}
+  .shot .bar{display:flex;align-items:center;gap:6px;height:30px;padding:0 12px;background:#e9edf4}
+  .shot .bar i{width:10px;height:10px;border-radius:50%;background:#c6cfdd}
+  .shot .bar span{margin-left:10px;font-size:12px;color:var(--muted);font-weight:700;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+  .shot img{width:100%;height:auto;aspect-ratio:16/10;object-fit:cover;object-position:top left}
+  .hero .shot{border-radius:16px 16px 0 0}
+
+  /* cabeçalhos de seção */
+  .eyebrow{display:inline-block;font-weight:800;color:var(--blue);font-size:14px;letter-spacing:.08em;text-transform:uppercase;margin-bottom:12px}
+  .sec-head{max-width:64ch;margin-bottom:44px}
+  .sec-head h2{font-size:clamp(28px,4.4vw,44px);color:var(--blue-deep)}
+  .sec-head p{margin-top:14px;color:var(--muted);font-size:17px}
+  .on-blue .eyebrow{color:var(--yellow)}
+  .on-blue .sec-head h2{color:var(--on-dark)}.on-blue .sec-head p{color:var(--on-dark-soft)}
+
+  /* dores */
+  .dores{background:var(--white)}
+  .dor-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px}
+  .dor{border-radius:20px;padding:24px;background:var(--paper);border:1px solid var(--line);display:grid;gap:8px;align-content:start}
+  .dor h3{font-size:20px;color:var(--blue-deep)}
+  .dor p{color:#33436b;font-size:15.5px}
+  .dor .ic{width:42px;height:42px;border-radius:12px;background:var(--blue-deep);color:var(--yellow);display:grid;place-items:center}
+  .dor .ic svg{width:22px;height:22px}
+
+  /* frentes (mesmo padrão de "Soluções" do site BP.CONN) */
+  .frentes{background:linear-gradient(160deg,#173c74,#12224a)}
+  .sol-grid{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+  .sol{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.12);border-radius:20px;padding:8px 26px;color:var(--on-dark)}
+  .sol > .sol-top{padding:22px 0 4px}
+  .sol .tagname{display:inline-block;font-weight:800;color:var(--yellow);font-size:13px;letter-spacing:.06em;margin-bottom:8px}
+  .sol h3{font-size:23px;margin-bottom:8px}
+  .sol .desc{color:var(--on-dark-soft);font-size:15.5px;margin-bottom:6px}
+  details{border-top:1px solid rgba(255,255,255,.12)}
+  details > summary{list-style:none;cursor:pointer;padding:16px 0;font-weight:700;display:flex;align-items:center;justify-content:space-between;gap:10px}
+  details > summary::-webkit-details-marker{display:none}
+  details > summary .chev{transition:transform .2s;color:var(--yellow);font-size:20px;line-height:1}
+  details[open] > summary .chev{transform:rotate(45deg)}
+  details .body{padding:0 0 20px}
+  .lista{list-style:none;display:grid;gap:8px}
+  .lista li{position:relative;padding-left:20px;font-size:15px}
+  .lista li::before{content:"";position:absolute;left:0;top:9px;width:7px;height:7px;border-radius:50%;background:var(--yellow)}
+  .sol .lista li{color:var(--on-dark-soft)}
+
+  /* tour: linhas alternadas texto × tela */
+  .tour{background:var(--paper)}
+  .feat{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,7fr);gap:48px;align-items:center}
+  .feat + .feat{margin-top:88px}
+  .feat.inv{grid-template-columns:minmax(0,7fr) minmax(0,5fr)}
+  .feat.inv .feat-txt{order:2}
+  .feat-txt{min-width:0}
+  .feat-txt .eyebrow{margin-bottom:8px}
+  .feat-txt h3{font-size:clamp(26px,3.2vw,34px);color:var(--blue-deep)}
+  .feat-txt > p{margin-top:12px;color:var(--muted);font-size:17px;max-width:52ch}
+  .feat-txt .lista{margin-top:20px;gap:12px}
+  .feat-txt .lista li{font-size:16px;color:#33436b;padding-left:24px}
+  .feat-txt .lista li::before{top:8px;width:9px;height:9px}
+  .feat-txt .lista b{color:var(--blue-deep)}
+  .quote{margin-top:22px;padding:14px 18px;border-radius:14px;background:var(--white);border:1px solid var(--line);font-weight:700;color:var(--blue);font-style:italic}
+
+  /* faixa escura de destaque (reservada) */
+  .nr1{background:var(--navy);color:var(--on-dark)}
+  .nr1-grid{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,7fr);gap:48px;align-items:center}
+  .nr1 .lista li{color:var(--on-dark-soft);font-size:16px;padding-left:24px}
+  .nr1 .lista b{color:var(--on-dark)}
+  .datas{display:flex;flex-wrap:wrap;gap:12px;margin-top:24px}
+  .data{border:1px solid rgba(255,255,255,.18);border-radius:14px;padding:12px 16px;min-width:0}
+  .data b{display:block;font-family:var(--font-display);font-size:26px;color:var(--yellow);line-height:1.1}
+  .data span{font-size:13.5px;color:var(--on-dark-soft)}
+  .nota{margin-top:18px;font-size:13px;color:rgba(255,255,255,.62)}
+
+  /* liga/desliga + segurança */
+  .plataforma{background:var(--white)}
+  .dup{display:grid;grid-template-columns:minmax(0,7fr) minmax(0,5fr);gap:48px;align-items:start}
+  .seg-list{display:grid;gap:14px;margin-top:8px}
+  .seg-item{display:flex;gap:14px;align-items:flex-start;padding:16px;border-radius:16px;background:var(--paper);border:1px solid var(--line)}
+  .seg-item .ic{width:38px;height:38px;flex:none;border-radius:11px;background:var(--white);color:var(--blue);display:grid;place-items:center;border:1px solid var(--line)}
+  .seg-item .ic svg{width:20px;height:20px}
+  .seg-item .h4{font-size:16px;color:var(--blue-deep)}
+  .seg-item p{font-size:14.5px;color:var(--muted)}
+  .chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:18px}
+  .chip{background:var(--paper);border:1px solid var(--line);color:var(--blue-deep);font-weight:700;border-radius:999px;padding:7px 14px;font-size:14px}
+  .chip.off{color:#5f6b85;text-decoration:line-through}
+
+  /* para quem */
+  .quem{background:var(--paper)}
+  .quem-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:18px}
+  .perfil{background:var(--white);border:1px solid var(--line);border-radius:20px;padding:24px;display:grid;gap:8px;align-content:start}
+  .perfil h3{font-size:19px;color:var(--blue-deep)}
+  .perfil p{font-size:15px;color:#33436b}
+
+  /* planos */
+  .planos{background:linear-gradient(160deg,#173c74,#12224a)}
+  .plano-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px}
+  .plano{border-radius:22px;padding:28px;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.14);color:var(--on-dark);display:grid;gap:14px;align-content:start}
+  .plano.dest{background:var(--white);color:var(--text);border-color:var(--white);box-shadow:0 24px 48px -24px rgba(0,0,0,.5)}
+  .plano .tagname{font-weight:800;color:var(--yellow);font-size:13px;letter-spacing:.06em}
+  .plano.dest .tagname{color:var(--blue)}
+  .plano h3{font-size:26px}
+  .plano.dest h3{color:var(--blue-deep)}
+  .plano .preco{font-weight:800;font-size:15px;color:var(--on-dark-soft)}
+  .plano.dest .preco{color:var(--muted)}
+  .plano .lista li{color:var(--on-dark-soft)}
+  .plano.dest .lista li{color:#33436b}
+  .plano .btn{margin-top:6px}
+
+  /* dúvidas */
+  .faq{background:var(--white)}
+  .faq-list{display:grid;gap:12px;max-width:860px}
+  .faq details{border:1px solid var(--line);border-radius:16px;padding:0 20px;background:var(--paper)}
+  .faq details > summary{color:var(--blue-deep);font-size:17px}
+  .faq details .body p{color:#33436b;font-size:15.5px;max-width:70ch}
+
+  /* faixa CTA */
+  .cta{background:var(--yellow);color:#20315a}
+  .cta .wrap{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:18px;padding-block:40px}
+  .cta h2{font-size:clamp(24px,3.4vw,34px);color:#20315a}
+  .cta p{color:#4a4326;font-weight:600;margin-top:4px}
+  .cta section{padding:0}
+
+  /* contato */
+  .contato{background:var(--white)}
+  .contato-grid{display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:start}
+  .contlist{display:grid;gap:6px}
+  .contlist a,.contlist .row{display:flex;align-items:center;gap:14px;padding:15px 0;border-bottom:1px solid var(--line);color:var(--text);min-width:0}
+  .contlist .ico{width:40px;height:40px;flex:none;border-radius:12px;background:var(--paper);display:flex;align-items:center;justify-content:center;color:var(--blue)}
+  .contlist .ico svg{width:20px;height:20px}
+  .contlist .k{font-size:13px;color:var(--muted);font-weight:700}
+  .contlist .v{font-weight:700;color:var(--blue-deep);overflow-wrap:anywhere}
+  .form{background:var(--paper);border-radius:20px;padding:26px}
+  .form h3{color:var(--blue-deep);font-size:20px;margin-bottom:16px}
+  .form label{display:block;font-weight:700;font-size:14px;color:#33436b;margin:12px 0 6px}
+  .form input,.form textarea,.form select{width:100%;border:1px solid var(--line);background:var(--white);border-radius:12px;padding:12px 14px;font-family:inherit;font-size:15px;color:var(--text)}
+  .form textarea{min-height:100px;resize:vertical}
+  .form .btn{width:100%;margin-top:18px}
+  .form small{display:block;margin-top:10px;color:var(--muted)}
+
+  /* rodapé */
+  footer{background:var(--blue-deep);color:var(--on-dark-soft);padding-block:46px 30px}
+  .foot-top{display:flex;flex-wrap:wrap;justify-content:space-between;gap:24px}
+  footer .logo{color:var(--on-dark)}
+  .foot-tag{max-width:40ch;margin-top:12px;font-size:15px}
+  .foot-cols{display:flex;gap:56px;flex-wrap:wrap}
+  .foot-cols .h4{color:var(--on-dark);font-family:var(--font-body);font-size:14px;letter-spacing:.05em;text-transform:uppercase;margin-bottom:10px}
+  .foot-cols a,.foot-cols p{display:block;font-size:14.5px;margin-bottom:7px;color:var(--on-dark-soft)}
+  .foot-bottom{margin-top:34px;padding-top:18px;border-top:1px solid rgba(255,255,255,.12);font-size:13.5px;display:flex;flex-wrap:wrap;justify-content:space-between;gap:10px}
+
+  a:focus-visible,button:focus-visible,summary:focus-visible,input:focus-visible,textarea:focus-visible,select:focus-visible{outline:3px solid var(--yellow);outline-offset:2px}
+  .rise{animation:rise .7s cubic-bezier(.2,.7,.2,1) both}
+  .d1{animation-delay:.05s}.d2{animation-delay:.15s}.d3{animation-delay:.25s}.d4{animation-delay:.35s}
+  @keyframes rise{from{transform:translateY(14px)}to{transform:none}}
+
+  @media (max-width:980px){
+    .quem-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+    .dor-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+    .menu{gap:18px}
+  }
+  @media (max-width:860px){
+    section{padding-block:64px}
+    .menu{display:none;position:absolute;top:68px;left:0;right:0;flex-direction:column;align-items:stretch;gap:0;background:var(--blue-deep);padding-block:8px;border-bottom:1px solid rgba(255,255,255,.1)}
+    .menu.open{display:flex}
+    .menu a{padding:14px 24px}
+    .menu .btn{margin:8px 24px}
+    .hamburger{display:block}
+    .sol-grid,.contato-grid,.feat,.feat.inv,.nr1-grid,.dup,.plano-grid{grid-template-columns:1fr}
+    .feat.inv .feat-txt{order:0}
+    .feat{gap:28px}.feat + .feat{margin-top:64px}
+  }
+  @media (max-width:560px){
+    .dor-grid,.quem-grid{grid-template-columns:1fr}
+    .hero{padding-top:64px}
+  }
+  @media (prefers-reduced-motion:reduce){.rise{animation:none}html{scroll-behavior:auto}}
+</style>
+<script type="application/ld+json">[{"@context": "https://schema.org", "@type": "Organization", "name": "ChiefDesk", "url": "https://chiefdesk.com.br/", "logo": "https://chiefdesk.com.br/img/icon-192.png", "email": "contato@bpconn.com", "parentOrganization": {"@type": "Organization", "name": "BP.CONN", "url": "https://bpconn.com.br"}}, {"@context": "https://schema.org", "@type": "SoftwareApplication", "name": "Gestor Eficiente", "applicationCategory": "BusinessApplication", "operatingSystem": "Web, Windows, macOS, iOS, Android", "inLanguage": "pt-BR", "url": "https://chiefdesk.com.br/", "image": "https://chiefdesk.com.br/img/og-chiefdesk.jpg", "description": "Sistema de gestão para líderes: tarefas e follow-ups, delegação, projetos, pessoas, clima da equipe, NR-1 e controles da área numa só plataforma.", "publisher": {"@type": "Organization", "name": "ChiefDesk"}}, {"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Preciso instalar alguma coisa?", "acceptedAnswer": {"@type": "Answer", "text": "Não. O Gestor Eficiente funciona no navegador do computador, do tablet e do celular, em Windows, Mac, iPad, iPhone e Android. No tablet e no celular dá para adicionar à tela de início e usar como app."}}, {"@type": "Question", "name": "Funciona em tablet Android, com caneta?", "acceptedAnswer": {"@type": "Answer", "text": "Sim. No Chrome do Android, as anotações à mão funcionam com S Pen (Galaxy Tab) e outras canetas ativas, com sensibilidade à pressão e sem a palma da mão riscar. No iPad, o mesmo vale para a Apple Pencil. Sem caneta, dá para desenhar com o dedo ou com o mouse."}}, {"@type": "Question", "name": "Funciona com o Outlook e o Google Agenda?", "acceptedAnswer": {"@type": "Answer", "text": "Sim. Você conecta um ou mais calendários publicados do Outlook, do Google Agenda ou do iCloud, e as reuniões aparecem e se atualizam sozinhas. E-mails salvos (.msg ou .eml) viram tarefas com o e-mail anexado."}}, {"@type": "Question", "name": "Substitui o meu ERP ou sistema de RH?", "acceptedAnswer": {"@type": "Answer", "text": "Não é essa a ideia. O Gestor Eficiente cuida da rotina do gestor, do clima da equipe e dos controles que hoje vivem em planilhas, e importa dados por planilha quando precisa."}}, {"@type": "Question", "name": "A pesquisa é anônima mesmo?", "acceptedAnswer": {"@type": "Answer", "text": "Sim. As respostas são aplicadas pelo Microsoft Forms anônimo e o sistema guarda só o resultado agregado por dimensão, exibido apenas com 5 ou mais respostas. No termômetro de humor, o servidor grava só a semana e a nota."}}, {"@type": "Question", "name": "Qual a diferença entre o plano Individual e o Empresa?", "acceptedAnswer": {"@type": "Answer", "text": "O Individual é para um gestor organizar a própria rotina: tudo na conta é dele. O Empresa é para a equipe: cada pessoa vê o que é dela, o que foi delegado a ela e o que alguém compartilhou, com aceite das tarefas delegadas e a lista de pendências de cada um. Dá para trocar de plano depois, sem perder dados."}}, {"@type": "Question", "name": "Posso começar com poucos módulos?", "acceptedAnswer": {"@type": "Answer", "text": "Pode, e recomendamos. Você liga 2 ou 3 ferramentas no começo e ativa as outras quando quiser, sem migração."}}, {"@type": "Question", "name": "Como é a implantação?", "acceptedAnswer": {"@type": "Answer", "text": "Começamos com uma demonstração de 30 minutos e um piloto em uma área, com os seus dados. A importação de pessoas, orçamento e chamados é feita por planilha."}}]}]</script>
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="i-wa" viewBox="0 0 24 24"><path fill="currentColor" d="M12 2a10 10 0 0 0-8.5 15.2L2 22l4.9-1.5A10 10 0 1 0 12 2Zm5.3 14.1c-.2.6-1.3 1.2-1.8 1.2-.5.1-1 .1-1.7-.1-.4-.1-.9-.3-1.6-.6-2.7-1.2-4.5-4-4.6-4.2-.1-.2-1.1-1.5-1.1-2.8s.7-2 .9-2.2c.2-.3.5-.3.7-.3h.5c.2 0 .4 0 .6.5l.8 1.9c.1.2.1.4 0 .5l-.4.6c-.1.2-.3.3-.1.6.1.3.6 1 1.3 1.6.9.8 1.6 1 1.9 1.2.2.1.4.1.5-.1l.6-.7c.2-.2.3-.2.6-.1l1.8.9c.3.1.4.2.5.3.1.2.1.7-.1 1.4Z"/></symbol>
+  <symbol id="i-logo" viewBox="0 0 32 32"><rect width="32" height="32" rx="8" fill="#14254a"/><path d="M9 21l5-6 4 3 5-8" stroke="#F5C542" stroke-width="2.6" fill="none" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+  <symbol id="i-sheet" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="3" width="16" height="18" rx="2"/><path d="M4 9h16M4 15h16M10 3v18"/></g></symbol>
+  <symbol id="i-mail" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></g></symbol>
+  <symbol id="i-alert" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M10.3 3.9 1.8 18a2 2 0 0 0 1.7 3h17a2 2 0 0 0 1.7-3L13.7 3.9a2 2 0 0 0-3.4 0Z"/><path d="M12 9v4M12 17h.01"/></g></symbol>
+  <symbol id="i-heart" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M20.8 5.6a5 5 0 0 0-8.8-1.4 5 5 0 0 0-8.8 1.4C2 9.5 6 14 12 20c6-6 10-10.5 8.8-14.4Z"/><path d="M3 12h4l2-3 3 6 2-3h7"/></g></symbol>
+  <symbol id="i-user" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="4"/><path d="M4 21v-1a6 6 0 0 1 12 0v1M18 4l3 3M21 4l-3 3"/></g></symbol>
+  <symbol id="i-eye" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7S2 12 2 12Z"/><circle cx="12" cy="12" r="3"/><path d="M3 3l18 18"/></g></symbol>
+  <symbol id="i-lock" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="11" width="16" height="10" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/></g></symbol>
+  <symbol id="i-users" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="8" r="3.5"/><path d="M2 20v-1a5 5 0 0 1 5-5h4a5 5 0 0 1 5 5v1M16 4.5a3.5 3.5 0 0 1 0 7M22 20v-1a5 5 0 0 0-3-4.6"/></g></symbol>
+  <symbol id="i-shield" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3 4 6v6c0 5 3.5 8 8 9 4.5-1 8-4 8-9V6l-8-3Z"/><path d="m9 12 2 2 4-4"/></g></symbol>
+  <symbol id="i-hist" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12a9 9 0 1 0 3-6.7L3 8"/><path d="M3 3v5h5M12 7v5l3 2"/></g></symbol>
+  <symbol id="i-cloud" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M7 18a5 5 0 0 1-.8-9.9A6 6 0 0 1 18 9a4.5 4.5 0 0 1 0 9H7Z"/></g></symbol>
+  <symbol id="i-pin" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 21s7-5.5 7-11a7 7 0 1 0-14 0c0 5.5 7 11 7 11Z"/><circle cx="12" cy="10" r="2.5"/></g></symbol>
+  <symbol id="i-login" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M15 3h4a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-4M10 17l5-5-5-5M15 12H3"/></g></symbol>
+</svg>
+
+<header>
+  <div class="wrap nav">
+    <a href="#top" class="logo brand" aria-label="ChiefDesk — início">
+      <svg class="ico" aria-hidden="true"><use href="#i-logo"/></svg>
+      ChiefDesk
+    </a>
+    <nav class="menu" id="menu">
+      <a href="#funcionalidades">Funcionalidades</a>
+      <a href="#para-quem">Para quem</a>
+      <a href="#planos">Planos</a>
+      <a href="#duvidas">Dúvidas</a>
+      <a href="#" class="btn btn-ghost-light menu-cta js-app" target="_blank" rel="noopener"><svg aria-hidden="true"><use href="#i-login"/></svg>Entrar</a>
+      <a href="#contato" class="btn btn-yellow menu-cta js-wa">Agende uma demonstração</a>
+    </nav>
+    <button class="hamburger" id="ham" aria-label="Abrir menu" aria-expanded="false" aria-controls="menu">
+      <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
+    </button>
+  </div>
+</header>
+
+<main id="top">
+
+<!-- HERO -->
+<section class="hero">
+  <div class="wrap">
+    <div class="hero-txt">
+      <span class="eyebrow rise d1" style="color:var(--yellow)">Gestor Eficiente · uma plataforma ChiefDesk</span>
+      <h1 class="rise d1">Sua área sob controle. <span class="hl">Sem planilhas.</span></h1>
+      <p class="lead rise d2">Tarefas, follow-ups, pessoas, clima e processos da sua área em uma única plataforma. Você abre de manhã e em dois minutos sabe exatamente onde agir.</p>
+      <div class="actions rise d3">
+        <a href="#contato" class="btn btn-yellow js-wa"><svg aria-hidden="true"><use href="#i-wa"/></svg>Agende uma demonstração</a>
+        <a href="#funcionalidades" class="btn btn-ghost-light">Ver funcionalidades</a>
+      </div>
+      <div class="stats rise d4">
+        <span><b>64 telas</b> em 12 áreas</span>
+        <span><b>Liga e desliga</b> só o que usar</span>
+        <span><b>Outlook, Google</b> e iCloud</span>
+        <span><b>Tablet</b> com caneta</span>
+      </div>
+    </div>
+    <div class="hero-shot rise d4">
+      <div class="shot"><div class="bar"><i></i><i></i><i></i><span>Visão geral · Gestor Eficiente</span></div>
+        <img src="img/visao-geral.webp" alt="Tela de visão geral do Gestor Eficiente com pontos de atenção, próximos sete dias, orçamento versus realizado e OKR" width="1600" height="1000" />
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- DORES -->
+<section class="dores" id="dores">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="eyebrow">O desafio</span>
+      <h2>O gestor de hoje vive apagando incêndio</h2>
+      <p>Os controles da área estão espalhados em planilhas, e-mails e cadernos. Quando o problema aparece, já virou urgência.</p>
+    </div>
+    <div class="dor-grid">
+      <article class="dor"><span class="ic"><svg><use href="#i-sheet"/></svg></span><h3>Planilhas espalhadas</h3><p>Férias, metas, orçamento e checklists em dezenas de arquivos, cada um numa versão.</p></article>
+      <article class="dor"><span class="ic"><svg><use href="#i-mail"/></svg></span><h3>Follow-ups que se perdem</h3><p>Pendências presas na caixa de entrada. Ninguém lembra quem estava esperando o quê.</p></article>
+      <article class="dor"><span class="ic"><svg><use href="#i-alert"/></svg></span><h3>Prazos no susto</h3><p>Entregas fiscais, reporting à matriz e auditoria dependem da memória de uma pessoa.</p></article>
+      <article class="dor"><span class="ic"><svg><use href="#i-heart"/></svg></span><h3>Clima no escuro</h3><p>O humor e a carga da equipe só aparecem na avaliação de fim de ano, quando já é tarde.</p></article>
+      <article class="dor"><span class="ic"><svg><use href="#i-user"/></svg></span><h3>Só uma pessoa sabe</h3><p>Quando alguém-chave sai de férias, o processo para.</p></article>
+      <article class="dor"><span class="ic"><svg><use href="#i-eye"/></svg></span><h3>Pouca visão do todo</h3><p>Sem um painel único, o gestor descobre os problemas tarde demais.</p></article>
+    </div>
+  </div>
+</section>
+
+<!-- FRENTES -->
+<section class="frentes on-blue" id="funcionalidades">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="eyebrow">A plataforma</span>
+      <h2>Uma plataforma, quatro frentes</h2>
+      <p>O mesmo cadastro de pessoas, o mesmo calendário e as mesmas etiquetas conversam entre todas as áreas. Você liga só o que vai usar.</p>
+    </div>
+    <div class="sol-grid">
+      <div class="sol">
+        <div class="sol-top"><span class="tagname">GESTÃO E PRODUTIVIDADE</span><h3>O dia a dia do gestor organizado</h3><p class="desc">Tudo o que vence, o que está parado e o que precisa de atenção.</p></div>
+        <details><summary>Ver o que inclui <span class="chev">+</span></summary><div class="body"><ul class="lista">
+          <li>Visão geral com alertas de todos os módulos</li>
+          <li>Calendário sincronizado com Outlook, Google Agenda ou iCloud e preparação de reuniões</li>
+          <li>Tarefas com Kanban, matriz GUT, delegação e tarefas recorrentes</li>
+          <li>E-mail do Outlook (.msg/.eml) que vira follow-up com um arrasto</li>
+          <li>Projetos com Gantt, horas e custos; OKR e 1:1 com roteiros</li>
+          <li>Bloco de anotações com escrita à mão no tablet e arquivos por pastas</li>
+          <li>Painel de eficiência com SLA, backlog e fluxo mensal</li>
+        </ul></div></details>
+      </div>
+      <div class="sol">
+        <div class="sol-top"><span class="tagname">PESSOAS E DESENVOLVIMENTO</span><h3>A equipe inteira numa ficha só</h3><p class="desc">Do cadastro ao desenvolvimento, com histórico completo de cada pessoa.</p></div>
+        <details><summary>Ver o que inclui <span class="chev">+</span></summary><div class="body"><ul class="lista">
+          <li>Time, organograma automático e matriz de cobertura</li>
+          <li>Férias, cartão-ponto, ocorrências, exames (ASO) e admissões</li>
+          <li>Avaliação de desempenho, 9-Box, competências e feedbacks</li>
+          <li>PDI, treinamentos com alerta de vencimento e onboarding</li>
+          <li>Metas com régua de bônus (modelo de incentivo)</li>
+          <li>Cargos e salários, benefícios e holerites</li>
+        </ul></div></details>
+      </div>
+      <div class="sol">
+        <div class="sol-top"><span class="tagname">CLIMA E BEM-ESTAR</span><h3>Uma equipe mais engajada e saudável</h3><p class="desc">O pulso da equipe ao longo do ano, não só na avaliação.</p></div>
+        <details><summary>Ver o que inclui <span class="chev">+</span></summary><div class="body"><ul class="lista">
+          <li>Pesquisa de clima com eNPS e termômetro de humor semanal</li>
+          <li>Mural, reconhecimentos e modo TV</li>
+          <li>Políticas com registro de ciência e diagnóstico de cultura</li>
+          <li>Check-ins de bem-estar nos 1:1</li>
+          <li>Riscos psicossociais da NR-1: inventário, plano de ação e evidências</li>
+        </ul></div></details>
+      </div>
+      <div class="sol">
+        <div class="sol-top"><span class="tagname">PROCESSOS E CONTROLES</span><h3>Rotinas com dono, prazo e histórico</h3><p class="desc">Do fechamento mensal às pequenas aprovações do dia a dia.</p></div>
+        <details><summary>Ver o que inclui <span class="chev">+</span></summary><div class="body"><ul class="lista">
+          <li>Agenda de obrigações com vencimento calculado e entregas registradas</li>
+          <li>Checklists recorrentes e checklist de fechamento mensal</li>
+          <li>Despesas × orçamento por centro de custo, com forecast</li>
+          <li>Solicitações e aprovações, reembolsos e patrimônio</li>
+          <li>NPS dos clientes internos</li>
+        </ul></div></details>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TOUR -->
+<section class="tour">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="eyebrow">Por dentro</span>
+      <h2>Feito para o dia a dia de quem lidera</h2>
+      <p>Telas reais do sistema, com dados de exemplo.</p>
+    </div>
+
+    <div class="feat">
+      <div class="feat-txt">
+        <span class="eyebrow">Tarefas e follow-ups</span>
+        <h3>Arraste o e-mail. A tarefa nasce.</h3>
+        <p>O e-mail salvo do Outlook vira follow-up com remetente, assunto e o próprio e-mail anexado.</p>
+        <ul class="lista">
+          <li><b>Aguardando quem:</b> saiba o que depende de terceiros.</li>
+          <li><b>Tarefas recorrentes:</b> concluiu a mensal, a próxima é criada sozinha.</li>
+          <li><b>Prioridade GUT</b> para decidir o que fazer primeiro.</li>
+        </ul>
+      </div>
+      <div class="shot"><div class="bar"><i></i><i></i><i></i><span>Tarefas · Kanban</span></div><img src="img/tarefas.webp" alt="Quadro Kanban de tarefas com colunas a fazer, em andamento, aguardando terceiros e concluída" loading="lazy" width="1600" height="1000" /></div>
+    </div>
+
+    <div class="feat inv">
+      <div class="feat-txt">
+        <span class="eyebrow">Anotações</span>
+        <h3>O caderno da reunião vira plano de ação</h3>
+        <p>Blocos, seções e páginas sem limite. Escreva digitando ou à mão no tablet: Apple Pencil no iPad, S Pen ou outra caneta no Android.</p>
+        <ul class="lista">
+          <li><b>Caneta com pressão</b>, marca-texto e borracha; a palma da mão não risca.</li>
+          <li><b>Selecione e crie a tarefa</b> a partir do texto ou do desenho.</li>
+          <li><b>Busca em todas as páginas</b> para achar aquela decisão de reunião.</li>
+        </ul>
+      </div>
+      <div class="shot"><div class="bar"><i></i><i></i><i></i><span>Anotações · Comitê com a matriz</span></div><img src="img/anotacoes.webp" alt="Bloco de anotações com página de reunião, lista de próximos passos e um desenho à mão" loading="lazy" width="1600" height="1000" /></div>
+    </div>
+
+    <div class="feat">
+      <div class="feat-txt">
+        <span class="eyebrow">Agenda de obrigações</span>
+        <h3>Nenhum prazo depende da memória de alguém</h3>
+        <p>Obrigações fiscais, contábeis, reporting à matriz e auditoria com vencimento calculado.</p>
+        <ul class="lista">
+          <li><b>Mensal, trimestral ou anual</b>; fim de semana antecipa para a sexta.</li>
+          <li><b>Responsável e backup</b> definidos para cada obrigação.</li>
+          <li><b>Histórico de entregas</b> mês a mês: quem entregou e quando.</li>
+        </ul>
+      </div>
+      <div class="shot"><div class="bar"><i></i><i></i><i></i><span>Agenda de obrigações</span></div><img src="img/obrigacoes.webp" alt="Agenda de obrigações com próximos vencimentos, responsável, backup e botão de entregue" loading="lazy" width="1600" height="1000" /></div>
+    </div>
+
+    <div class="feat inv">
+      <div class="feat-txt">
+        <span class="eyebrow">Matriz de cobertura</span>
+        <h3>Descubra onde só uma pessoa sabe fazer</h3>
+        <p>Titular, backup e nível de domínio de cada pessoa em cada atividade crítica da área.</p>
+        <ul class="lista">
+          <li><b>Alerta de “pessoa única”</b> nas atividades sem cobertura.</li>
+          <li><b>Backup planejado</b> antes das férias.</li>
+          <li><b>Procedimentos documentados</b> acompanhados.</li>
+        </ul>
+      </div>
+      <div class="shot"><div class="bar"><i></i><i></i><i></i><span>Matriz de cobertura</span></div><img src="img/cobertura.webp" alt="Matriz de polivalência com atividades nas linhas, pessoas nas colunas e níveis de domínio coloridos" loading="lazy" width="1600" height="1000" /></div>
+    </div>
+
+    <div class="feat">
+      <div class="feat-txt">
+        <span class="eyebrow">Clima e comunicação</span>
+        <h3>Perceba a queda de clima em semanas</h3>
+        <p>Pesquisa de clima com eNPS, termômetro de humor semanal e um mural que a equipe lê.</p>
+        <ul class="lista">
+          <li><b>Voto anônimo</b>: o servidor não grava quem votou.</li>
+          <li><b>Reconhecimentos</b> ligados aos valores, com ranking do ano.</li>
+          <li><b>Modo TV</b> para avisos, aniversariantes e conquistas.</li>
+          <li><b>Pronto também para a NR-1</b>: riscos psicossociais com inventário e plano de ação.</li>
+        </ul>
+      </div>
+      <div class="shot"><div class="bar"><i></i><i></i><i></i><span>Pesquisa de clima e eNPS</span></div><img src="img/clima.webp" alt="Resultado da pesquisa de clima com favorabilidade por dimensão e eNPS" loading="lazy" width="1600" height="1000" /></div>
+    </div>
+  </div>
+</section>
+
+<!-- PLATAFORMA -->
+<section class="plataforma" id="plataforma">
+  <div class="wrap dup">
+    <div>
+      <div class="sec-head" style="margin-bottom:24px">
+        <span class="eyebrow">Do seu jeito</span>
+        <h2>Liga e desliga: cada empresa com o seu menu</h2>
+        <p>O administrador escolhe as ferramentas visíveis. O que fica desligado some do menu, dos alertas e do calendário, e nada é apagado.</p>
+      </div>
+      <div class="shot"><div class="bar"><i></i><i></i><i></i><span>Configurações · Ferramentas no menu</span></div><img src="img/menu.webp" alt="Tela de configurações com caixas para ligar e desligar cada ferramenta do menu" loading="lazy" width="1600" height="1000" /></div>
+      <div class="chips" aria-label="Exemplo de menu de uma empresa">
+        <span class="chip">Tarefas</span><span class="chip">Calendário</span><span class="chip">Clima</span><span class="chip">Obrigações</span><span class="chip off">Reembolsos</span><span class="chip off">Modo TV</span>
+      </div>
+    </div>
+    <div>
+      <div class="sec-head" style="margin-bottom:16px">
+        <span class="eyebrow">Segurança e LGPD</span>
+        <h2>Seus dados protegidos</h2>
+      </div>
+      <div class="seg-list">
+        <div class="seg-item"><span class="ic"><svg><use href="#i-lock"/></svg></span><div><h3 class="h4">Senhas protegidas</h3><p>Guardadas só como hash forte. Ninguém vê a senha, nem o administrador.</p></div></div>
+        <div class="seg-item"><span class="ic"><svg><use href="#i-users"/></svg></span><div><h3 class="h4">Perfis e visão de cada um</h3><p>Administrador, Gestor, Colaborador (sem salários) e Leitura. No plano Empresa, cada pessoa vê o que é dela, o que foi delegado ou compartilhado.</p></div></div>
+        <div class="seg-item"><span class="ic"><svg><use href="#i-shield"/></svg></span><div><h3 class="h4">Anonimato de verdade</h3><p>Pesquisas guardam só o resultado agregado; dados sensíveis aparecem só em números.</p></div></div>
+        <div class="seg-item"><span class="ic"><svg><use href="#i-hist"/></svg></span><div><h3 class="h4">Histórico e backup</h3><p>Quem criou e alterou cada registro, e backup completo com anexos.</p></div></div>
+        <div class="seg-item"><span class="ic"><svg><use href="#i-cloud"/></svg></span><div><h3 class="h4">Na nuvem, com HTTPS</h3><p>Nada para instalar: navegador, tablet e celular, com conexão criptografada.</p></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PARA QUEM -->
+<section class="quem" id="para-quem">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="eyebrow">Para quem</span>
+      <h2>Para quem lidera equipes e muitas rotinas</h2>
+    </div>
+    <div class="quem-grid">
+      <article class="perfil"><h3>Gestores de área</h3><p>Controllers, CFOs, gerentes financeiros, de operações e de projetos.</p></article>
+      <article class="perfil"><h3>RH e DP</h3><p>Clima, avaliações, treinamentos, férias e indicadores sem montar planilhas.</p></article>
+      <article class="perfil"><h3>Médias empresas</h3><p>Controle e evidência sem a complexidade de um ERP de RH.</p></article>
+      <article class="perfil"><h3>Escritórios e consultorias</h3><p>Obrigações, prazos e equipes de vários clientes num só lugar.</p></article>
+    </div>
+  </div>
+</section>
+
+<!-- PLANOS -->
+<section class="planos on-blue" id="planos">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="eyebrow">Planos</span>
+      <h2>Comece pequeno. Cresça quando quiser.</h2>
+      <p>Os planos usam o liga/desliga do menu: trocar de plano não exige migração de dados.</p>
+    </div>
+    <div class="plano-grid">
+      <article class="plano">
+        <span class="tagname">ESSENCIAL</span>
+        <h3>Para organizar a rotina</h3>
+        <p class="preco">Sob consulta</p>
+        <ul class="lista"><li>Visão geral e calendário (Outlook, Google, iCloud)</li><li>Tarefas, follow-ups e projetos</li><li>Reuniões, anotações e arquivos</li><li>Etiquetas e busca em tudo</li></ul>
+        <a href="#contato" class="btn btn-ghost-light js-wa" data-plano="Essencial">Quero conhecer</a>
+      </article>
+      <article class="plano dest">
+        <span class="tagname">PESSOAS</span>
+        <h3>Para quem tem equipe</h3>
+        <p class="preco">Sob consulta</p>
+        <ul class="lista"><li>Tudo do Essencial</li><li>Time, organograma, férias e avaliações</li><li>Clima, eNPS e termômetro de humor</li><li>Políticas com ciência e saúde (NR-1)</li></ul>
+        <a href="#contato" class="btn btn-yellow js-wa" data-plano="Pessoas">Quero conhecer</a>
+      </article>
+      <article class="plano">
+        <span class="tagname">COMPLETO</span>
+        <h3>A plataforma inteira</h3>
+        <p class="preco">Sob consulta</p>
+        <ul class="lista"><li>Tudo do plano Pessoas</li><li>Obrigações, checklists e fechamento</li><li>Orçamento, aprovações e patrimônio</li><li>Mural, reconhecimentos e modo TV</li></ul>
+        <a href="#contato" class="btn btn-ghost-light js-wa" data-plano="Completo">Quero conhecer</a>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- DÚVIDAS -->
+<section class="faq" id="duvidas">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="eyebrow">Dúvidas</span>
+      <h2>Perguntas frequentes</h2>
+    </div>
+    <div class="faq-list">
+      <details><summary>Preciso instalar alguma coisa? <span class="chev">+</span></summary><div class="body"><p>Não. O Gestor Eficiente funciona no navegador do computador, do tablet e do celular, em Windows, Mac, iPad, iPhone e Android. No tablet e no celular dá para adicionar à tela de início e usar como app.</p></div></details>
+      <details><summary>Funciona em tablet Android, com caneta? <span class="chev">+</span></summary><div class="body"><p>Sim. No Chrome do Android, as anotações à mão funcionam com S Pen (Galaxy Tab) e outras canetas ativas, com sensibilidade à pressão e sem a palma da mão riscar. No iPad, o mesmo vale para a Apple Pencil. Sem caneta, dá para desenhar com o dedo ou com o mouse.</p></div></details>
+      <details><summary>Funciona com o Outlook e o Google Agenda? <span class="chev">+</span></summary><div class="body"><p>Sim. Você conecta um ou mais calendários publicados do Outlook, do Google Agenda ou do iCloud, e as reuniões aparecem e se atualizam sozinhas. E-mails salvos (.msg ou .eml) viram tarefas com o e-mail anexado.</p></div></details>
+      <details><summary>Substitui o meu ERP ou sistema de RH? <span class="chev">+</span></summary><div class="body"><p>Não é essa a ideia. O Gestor Eficiente cuida da rotina do gestor, do clima da equipe e dos controles que hoje vivem em planilhas, e importa dados por planilha quando precisa.</p></div></details>
+      <details><summary>A pesquisa é anônima mesmo? <span class="chev">+</span></summary><div class="body"><p>Sim. As respostas são aplicadas pelo Microsoft Forms anônimo e o sistema guarda só o resultado agregado por dimensão, exibido apenas com 5 ou mais respostas. No termômetro de humor, o servidor grava só a semana e a nota.</p></div></details>
+      <details><summary>Qual a diferença entre o plano Individual e o Empresa? <span class="chev">+</span></summary><div class="body"><p>O Individual é para um gestor organizar a própria rotina: tudo na conta é dele. O Empresa é para a equipe: cada pessoa vê o que é dela, o que foi delegado a ela e o que alguém compartilhou, com aceite das tarefas delegadas e a lista de pendências de cada um. Dá para trocar de plano depois, sem perder dados.</p></div></details>
+      <details><summary>Posso começar com poucos módulos? <span class="chev">+</span></summary><div class="body"><p>Pode, e recomendamos. Você liga 2 ou 3 ferramentas no começo e ativa as outras quando quiser, sem migração.</p></div></details>
+      <details><summary>Como é a implantação? <span class="chev">+</span></summary><div class="body"><p>Começamos com uma demonstração de 30 minutos e um piloto em uma área, com os seus dados. A importação de pessoas, orçamento e chamados é feita por planilha.</p></div></details>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<div class="cta">
+  <div class="wrap">
+    <div>
+      <h2>Vamos conversar 30 minutos?</h2>
+      <p>Mostramos o sistema com exemplos da sua realidade e montamos juntos o menu da sua área.</p>
+    </div>
+    <a href="#contato" class="btn btn-blue js-wa"><svg aria-hidden="true"><use href="#i-wa"/></svg>Agende uma demonstração</a>
+  </div>
+</div>
+
+<!-- CONTATO -->
+<section class="contato" id="contato">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="eyebrow">Contato</span>
+      <h2>Fale com a gente</h2>
+      <p>Conte rapidamente como é a sua área e escolhemos juntos por onde começar.</p>
+    </div>
+    <div class="contato-grid">
+      <div class="contlist">
+        <a href="mailto:contato@bpconn.com">
+          <span class="ico"><svg><use href="#i-mail"/></svg></span>
+          <span><span class="k">E-mail</span><br><span class="v">contato@bpconn.com</span></span>
+        </a>
+        <a href="#" class="js-wa">
+          <span class="ico"><svg><use href="#i-wa"/></svg></span>
+          <span><span class="k">WhatsApp</span><br><span class="v">(19) 2660-0731</span></span>
+        </a>
+        <div class="row">
+          <span class="ico"><svg><use href="#i-pin"/></svg></span>
+          <span><span class="k">Uma solução BP.CONN</span><br><span class="v">Indaiatuba · SP</span></span>
+        </div>
+      </div>
+      <form class="form" id="form" novalidate>
+        <h3>Peça uma demonstração</h3>
+        <label for="nome">Nome</label>
+        <input id="nome" type="text" placeholder="Seu nome" autocomplete="name" />
+        <label for="empresa">Empresa</label>
+        <input id="empresa" type="text" placeholder="Nome da empresa" autocomplete="organization" />
+        <label for="interesse">Interesse principal</label>
+        <select id="interesse">
+          <option>Organizar a rotina da área</option>
+          <option>Clima e bem-estar da equipe</option>
+          <option>Pessoas e desenvolvimento</option>
+          <option>Obrigações e processos</option>
+          <option>Quero ver tudo</option>
+        </select>
+        <label for="msg">Mensagem</label>
+        <textarea id="msg" placeholder="Quantas pessoas tem a sua área? O que mais pesa hoje?"></textarea>
+        <a href="#" class="btn btn-yellow" id="wa-form" target="_blank" rel="noopener"><svg aria-hidden="true"><use href="#i-wa"/></svg>Enviar pelo WhatsApp</a>
+        <small>A mensagem abre no WhatsApp já preenchida, pronta para enviar.</small>
+      </form>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="foot-top">
+      <div>
+        <span class="logo brand"><svg class="ico" aria-hidden="true"><use href="#i-logo"/></svg> ChiefDesk <small>por BP.CONN</small></span>
+        <p class="foot-tag">Menos planilhas, mais gestão: a área inteira organizada em um só lugar.</p>
+      </div>
+      <div class="foot-cols">
+        <div>
+          <h3 class="h4">Plataforma</h3>
+          <a href="#funcionalidades">Funcionalidades</a>
+          <a href="#planos">Planos</a>
+          <a href="#" class="js-app" target="_blank" rel="noopener">Entrar no sistema</a>
+        </div>
+        <div>
+          <h3 class="h4">Contato</h3>
+          <a href="mailto:contato@bpconn.com">contato@bpconn.com</a>
+          <p>(19) 2660-0731</p>
+          <a href="https://bpconn.com.br" target="_blank" rel="noopener">bpconn.com.br</a>
+        </div>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>© <span id="yr">2026</span> ChiefDesk · uma solução BP.CONN</span>
+      <span>Gestão · Pessoas · Clima · Processos</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+  // Ajuste aqui: WhatsApp de vendas e endereço do sistema (quando o site ocupar chiefdesk.com.br,
+  // o sistema passa para app.chiefdesk.com.br).
+  var WHATSAPP = "551926600731";
+  var APP_URL = "https://app.chiefdesk.com.br";
+
+  var menu = document.getElementById('menu'), ham = document.getElementById('ham');
+  ham.addEventListener('click', function(){ var o = menu.classList.toggle('open'); ham.setAttribute('aria-expanded', o ? 'true' : 'false'); });
+  menu.querySelectorAll('a').forEach(function(a){ a.addEventListener('click', function(){ menu.classList.remove('open'); ham.setAttribute('aria-expanded','false'); }); });
+  document.getElementById('yr').textContent = new Date().getFullYear();
+
+  function wa(text){ return "https://wa.me/" + WHATSAPP + (text ? "?text=" + encodeURIComponent(text) : ""); }
+  var ola = "Olá! Vim pelo site da ChiefDesk e gostaria de agendar uma demonstração do Gestor Eficiente.";
+  document.querySelectorAll('.js-wa').forEach(function(a){
+    var p = a.getAttribute('data-plano');
+    a.href = wa(p ? "Olá! Vim pelo site da ChiefDesk e quero conhecer o plano " + p + "." : ola);
+    a.target = "_blank"; a.rel = "noopener";
+  });
+  document.querySelectorAll('.js-app').forEach(function(a){ a.href = APP_URL; });
+
+  // formulário: monta a mensagem e atualiza o link do WhatsApp a cada digitação
+  var link = document.getElementById('wa-form');
+  function montar(){
+    var n = document.getElementById('nome').value.trim();
+    var e = document.getElementById('empresa').value.trim();
+    var i = document.getElementById('interesse').value;
+    var m = document.getElementById('msg').value.trim();
+    var t = "Olá! Sou " + (n || "[nome]") + (e ? " (" + e + ")" : "") + ". Tenho interesse no Gestor Eficiente: " + i + "." + (m ? " " + m : "");
+    link.href = wa(t);
+  }
+  ['nome','empresa','interesse','msg'].forEach(function(id){ document.getElementById(id).addEventListener('input', montar); });
+  document.getElementById('form').addEventListener('submit', function(ev){ ev.preventDefault(); });
+  montar();
+</script>
+
+</body>
+</html>
