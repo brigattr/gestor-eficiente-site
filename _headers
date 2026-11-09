@@ -1,0 +1,11 @@
+# Cabeçalhos de segurança (o Cloudflare Pages lê este arquivo automaticamente).
+# Se mudar o <script> do fim do index.html, recalcule o hash em script-src (o README explica).
+/*
+  Content-Security-Policy: default-src 'self'; script-src 'self' 'sha256-sWT1qhycUF23IsdbrG3XQDp6eJmx6Ts1GH4NtN0eDic='; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data:; connect-src 'self'; object-src 'none'; base-uri 'self'; frame-ancestors 'none'; form-action 'self' https://wa.me; upgrade-insecure-requests
+  Strict-Transport-Security: max-age=31536000; includeSubDomains
+  X-Content-Type-Options: nosniff
+  X-Frame-Options: DENY
+  Referrer-Policy: strict-origin-when-cross-origin
+  Permissions-Policy: camera=(), microphone=(), geolocation=(), payment=()
+/img/*
+  Cache-Control: public, max-age=2592000

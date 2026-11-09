@@ -17,6 +17,13 @@ Uma única página estática (`index.html`) + imagens (`img/`). Não tem servido
 - Ao mudar as perguntas frequentes, atualize também o bloco `application/ld+json` no `<head>`.
 - Depois de publicar: cadastrar o domínio no Google Search Console e enviar `https://chiefdesk.com.br/sitemap.xml`.
 
+## Segurança
+
+- `_headers` (lido pelo Cloudflare Pages): HTTPS obrigatório (HSTS), política de conteúdo (CSP) que só deixa rodar o
+  script do próprio site e as fontes do Google, proteção contra o site ser embutido em outro (clickjacking) e outras.
+- Se mudar o `<script>` do fim do `index.html`, o hash em `script-src` precisa ser recalculado
+  (sha256 em base64 do conteúdo do script), senão o WhatsApp e o menu do celular param de funcionar.
+
 ## O que ajustar antes de publicar
 
 No fim do `index.html`, dentro do `<script>`:
