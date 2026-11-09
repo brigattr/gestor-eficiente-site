@@ -1,0 +1,9 @@
+// Site estático (Cloudflare Workers com arquivos estáticos). O _headers continua valendo.
+{
+  "name": "gestor-eficiente-site",
+  "compatibility_date": "2026-11-01",
+  "assets": {
+    "directory": "./",
+    "not_found_handling": "404-page"
+  }
+}
